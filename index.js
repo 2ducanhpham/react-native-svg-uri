@@ -94,6 +94,9 @@ class SvgUri extends Component{
             this.fecthSVGData(source.uri);
         }
     }
+    if (nextProps.svgXmlData) {
+      this.setState({svgXmlData: nextProps.svgXmlData});
+    }
   }
 
   async fecthSVGData(uri){
@@ -136,7 +139,7 @@ class SvgUri extends Component{
         case 'rect':
              componentAtts = this.obtainComponentAtts(node, RECT_ATTS);
             return <Rect key={i} {...componentAtts}>{childs}</Rect>;
-        case 'defs': 
+        case 'defs':
             return <Defs key={i}>{childs}</Defs>;
         case 'linearGradient':
              componentAtts = this.obtainComponentAtts(node, LINEARG_ATTS);
